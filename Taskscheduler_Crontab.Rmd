@@ -262,13 +262,5 @@ This is just a simple example of where crontab can be used. There are many more 
 
 \
 \
-\
-
-<center>![](http://aritrabiswas.in/wp-content/uploads/2016/07/keep-calm.png)</center>
-
-\
-\
-\
-
 
 The source code for this is available in [here](https://github.com/AritraBiswas/Taskscheduler-and-Crontab-with-R) and a slider version of this presentation is available [here](http://rpubs.com/itheta/197258).
