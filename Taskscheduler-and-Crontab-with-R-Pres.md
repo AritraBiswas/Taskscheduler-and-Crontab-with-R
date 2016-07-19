@@ -9,6 +9,15 @@ Task scheduler and Crontab with R
 
 From the point of view of a data scientist this is important to explore a phenomena over time. While conducting an experiment with social networking sites websites I've found these beautiful tools which can run r scripts automatically after a per specified time by the user. Here is a tutorial explaining task scheduling process for Windows 10 and Linux Debian Jessie (This is the latest OS for Raspberry Pi).
 
+Here we will observe two videos from the Times Now YouTube channel and try to understand the change in viewership and other related statistics over time. For this process, we will use the YouTube data API and R. We will download the data from the YouTube data API after a certain time interval and store them in an R friendly Object. 
+
+========================================================
+
+After running this process for several hours we will try to understand the data pattern using statistical models. Here for demonstration purpose initially we will visualize the data using ggplot2. We also will try to predict the view count or any other variable using them as dependent variable.
+
+__Note:__ This is only for demonstration purpose. This model will not fit well in this case, since the data is not linear in nature. Other higher degree polynomials Of the dependent variable or any black box predictors can be taken under consideration for accuracy.
+
+This process can be used with many more such application where running a script is essential after a interval of time. 
 
 For windows:
 ========================================================
@@ -23,29 +32,36 @@ names(df)<-"SYSTEM_TIME";
 write.csv(df,"systemtime.csv");
 head(df)
 ```
+
 Let us save the above code a file called systime.R. Note down the path of the folder which contains this file. In my case this case the file is saved the file in __`C:\Users\Aritra\Desktop`__.
 
+Open task scheduler:
 ========================================================
 Now go to __Control Panel-> Administrative Tools -> Task Scheduler__.
 
 Select Create Basic Task, provide a name and a description of the task so that this can be easily recognized later. Click on next.
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/1.jpg)
- 
+
+Create a one time task:
 ========================================================
-Select __One time__ and click on next. This will create a one time job initially. Later on we will change the task so that it will be executed after a specified time. The time lag on which the script be executed (i.e. once a day, week or month) will be specified later.
+Select __One time__ and click on next. This will create a one time job initially. Later on we will change the task so that it will be executed after a specified time. The time lag on which the script will be executed (i.e.once a day, week or month) will be specified later. 
+
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/2.jpg)
 
+Select date and time:
 ========================================================
-__Select the date and time__ when the task will be executed for the first time. This is recommended to set the time a few minutes ahead from current time.
+__Select the date and time__ when the task will be executed for the first time. This is recommended to set the time a few minutes ahead from current time. 
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/3.jpg)
 
+Start a basic task:
 ========================================================
-Under Action choose __Start a program, click on next__. 
+Under Action choose __Start a program, click on next__.  
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/4.jpg)
 
+Create a .bat file:
 ========================================================
 Now, a .bat file has to be created. It will be executed from command prompt in windows. The analog of this .bat file in Linux is .sh. Write the following lines of code in a notepad file: 
 
@@ -55,43 +71,53 @@ __`R CMD BATCH C:\Users\Aritra\systime.R`__
 
 Save this file as a .bat file. Here it is saved as systime.bat. To check whether this .bat file is working properly or not, one may simply click on the .bat file. This should execute the R script from command prompt and generate a .csv and a .Rout file. The.csv file should contain the system time of execution of the R script and .Rout file should contain all the text printed out in R terminal. This may be useful to diagnose error if there is any. 
 
+Save .bat file:
 ========================================================
-Here the path __`"C:\Users\Aritra\systime.R"`__ is the location of my script, this path must be change with the file location of your r script.
+Here the path __`"C:\Users\Aritra\systime.R"`__ is the location of my script, this path must be change with the file location of your r script.  
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/5.jpg)
 
+Select task in task scheduler:
 ========================================================
 
 In task scheduler, __Browse the .bat file__ in the field of Program Script. Click Next.
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/6.jpg)
 
+Create basic task:
 ========================================================
 
 __Check in Open the Properties dialog__. Click on Finish.  
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/7.jpg)
 
+Grant administrator privileges:
 ========================================================
-Under General tab, __check in Run with highest priviliges__. 
+Under General tab, __check in Run with highest priviliges__.  
+
+Using sudo (in Linux) or running with highest privilege (in windows) is important in this case because it will allow r script to write data. If highest privilege is not grander saving the data file may be disrupted. 
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/8.jpg)
 
+Edit task setting:
 ========================================================
-__Change and shift to Triggers tab. Select task and click on edit.__
+__Change and shift to Triggers tab. Select task and click on edit.__  
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/9.jpg)
 
+Edit trigger:
 ========================================================
-Check in Repeat task every and select duration. When you click on a time lag then you can simply change the value from keyboard. This will enable to execute task at and given time. Further options such as Expire can be edited if required. If not, simply click on OK.  
+Check in Repeat task every and select duration. When you click on a time lag then you can simply change the value from keyboard. This will enable to execute task at and given time. Further options such as Expire can be edited if required. If not, simply click on OK.   
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/10.jpg)
 
+Layout of .csv file:
 ========================================================
 This .csv file will be generated in the directory of r script.
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/11.jpg)
 
+Layout of .Rout file:
 ========================================================
 This .Rout file will be generated in the same directory. This will contain all the text printed in the R terminal. 
 
@@ -112,7 +138,7 @@ head(df)
 
 ```
           SYSTEM_TIME
-1 2016-07-19 14:50:16
+1 2016-07-19 18:10:12
 ```
 
 Creating a shell executable script:
@@ -184,10 +210,11 @@ Here what the data looks like:
 ```
 Visualization:
 ========================================================
-Here, viewCount, likeCount, dislikeCount and commentCount has been plotted against time. The x-axis and y-axis represents time and count respectively. It shows change in count over time. 
+The x-axis and y-axis represents time and count respectively. It shows change in count over time. (Note: My computer was turned off during 2 P.M.-11 P.M. on that day,due to this there is jump in the graph at the same time this can be considered as a reminder that in order to obtain data continuously.)
 
 ![plot of chunk unnamed-chunk-4](Taskscheduler-and-Crontab-with-R-Pres-figure/unnamed-chunk-4-1.png)
-EDA of the obtained data:
+
+Fitting a linear model:
 ========================================================
 Here, we are fitting a LM on viewCount w.r.t time. __Time=Current time-Published.At__ . Model does not fits the data well because of non-linearity, but it definitely shows the way forward. 
 
@@ -198,9 +225,9 @@ There are so many things can be done with this. This is hard to list them. Soon 
 
 <center>![](http://aritrabiswas.in/wp-content/uploads/2016/07/keep-calm.png)</center>
 
-Reminder:
+Note:
 ========================================================
-My computer was turned off during 2PM to 11PM on that day that's why there a jump in the graph at the same time this can be considered as a reminder that in order to obtain data continuously __one must turn on a computer for a cetain period of time__. It is true for internet connectivity as well depending on the requirement of the program.  
+__One must turn on a computer for a cetain period of time__. It is true for internet connectivity as well depending on the requirement of the program.  
 
 This is just a simple example of where crontab can be used. There are many more things can be done using crontab, shiny and R. I'm going to present some examples related this topic and shiny soon.
 

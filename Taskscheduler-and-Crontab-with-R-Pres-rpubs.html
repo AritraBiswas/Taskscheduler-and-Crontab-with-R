@@ -761,6 +761,20 @@ hljs.initHighlightingOnLoad();
 <div class="slideContent" >
 <p>From the point of view of a data scientist this is important to explore a phenomena over time. While conducting an experiment with social networking sites websites I&#39;ve found these beautiful tools which can run r scripts automatically after a per specified time by the user. Here is a tutorial explaining task scheduling process for Windows 10 and Linux Debian Jessie (This is the latest OS for Raspberry Pi).</p>
 
+<p>Here we will observe two videos from the Times Now YouTube channel and try to understand the change in viewership and other related statistics over time. For this process, we will use the YouTube data API and R. We will download the data from the YouTube data API after a certain time interval and store them in an R friendly Object. </p>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+
+<div class="slideContent noTitle" >
+<p>After running this process for several hours we will try to understand the data pattern using statistical models. Here for demonstration purpose initially we will visualize the data using ggplot2. We also will try to predict the view count or any other variable using them as dependent variable.</p>
+
+<p><strong>Note:</strong> This is only for demonstration purpose. This model will not fit well in this case, since the data is not linear in nature. Other higher degree polynomials Of the dependent variable or any black box predictors can be taken under consideration for accuracy.</p>
+
+<p>This process can be used with many more such application where running a script is essential after a interval of time. </p>
+
 </div>
 
 </section>
@@ -782,8 +796,8 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
+<h3>Open task scheduler:</h3>
+<div class="mediaInline slideContent" >
 <p>Now go to <strong>Control Panel-&gt; Administrative Tools -&gt; Task Scheduler</strong>.</p>
 
 <p>Select Create Basic Task, provide a name and a description of the task so that this can be easily recognized later. Click on next.</p>
@@ -794,18 +808,19 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3> </h3>
-<div class="slideContent" >
-<p>Select <strong>One time</strong> and click on next. This will create a one time job initially. Later on we will change the task so that it will be executed after a specified time. The time lag on which the script be executed (i.e. once a day, week or month) will be specified later.
-<img src="http://aritrabiswas.in/wp-content/uploads/2016/07/2.jpg" alt=""/></p>
+<h3>Create a one time task:</h3>
+<div class="mediaInline slideContent" >
+<p>Select <strong>One time</strong> and click on next. This will create a one time job initially. Later on we will change the task so that it will be executed after a specified time. The time lag on which the script will be executed (i.e.once a day, week or month) will be specified later. </p>
+
+<p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/2.jpg" alt=""/></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
-<p><strong>Select the date and time</strong> when the task will be executed for the first time. This is recommended to set the time a few minutes ahead from current time.</p>
+<h3>Select date and time:</h3>
+<div class="mediaInline slideContent" >
+<p><strong>Select the date and time</strong> when the task will be executed for the first time. This is recommended to set the time a few minutes ahead from current time. </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/3.jpg" alt=""/></p>
 
@@ -813,9 +828,9 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
-<p>Under Action choose <strong>Start a program, click on next</strong>. </p>
+<h3>Start a basic task:</h3>
+<div class="mediaInline slideContent" >
+<p>Under Action choose <strong>Start a program, click on next</strong>.  </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/4.jpg" alt=""/></p>
 
@@ -823,8 +838,8 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="slideContent noTitle" >
+<h3>Create a .bat file:</h3>
+<div class="slideContent" >
 <p>Now, a .bat file has to be created. It will be executed from command prompt in windows. The analog of this .bat file in Linux is .sh. Write the following lines of code in a notepad file: </p>
 
 <p><strong><code>@echo off</code></strong></p>
@@ -837,9 +852,9 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
-<p>Here the path <strong><code>&quot;C:\Users\Aritra\systime.R&quot;</code></strong> is the location of my script, this path must be change with the file location of your r script.</p>
+<h3>Save .bat file:</h3>
+<div class="mediaInline slideContent" >
+<p>Here the path <strong><code>&quot;C:\Users\Aritra\systime.R&quot;</code></strong> is the location of my script, this path must be change with the file location of your r script.  </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/5.jpg" alt=""/></p>
 
@@ -847,8 +862,8 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
+<h3>Select task in task scheduler:</h3>
+<div class="mediaInline slideContent" >
 <p>In task scheduler, <strong>Browse the .bat file</strong> in the field of Program Script. Click Next.</p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/6.jpg" alt=""/></p>
@@ -857,8 +872,8 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
+<h3>Create basic task:</h3>
+<div class="mediaInline slideContent" >
 <p><strong>Check in Open the Properties dialog</strong>. Click on Finish.  </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/7.jpg" alt=""/></p>
@@ -867,9 +882,11 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
+<h3>Grant administrator privileges:</h3>
+<div class="mediaInline slideContent" >
+<p>Under General tab, <strong>check in Run with highest priviliges</strong>.  </p>
 
-<div class="mediaInline slideContent noTitle" >
-<p>Under General tab, <strong>check in Run with highest priviliges</strong>. </p>
+<p>Using sudo (in Linux) or running with highest privilege (in windows) is important in this case because it will allow r script to write data. If highest privilege is not grander saving the data file may be disrupted. </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/8.jpg" alt=""/></p>
 
@@ -877,9 +894,9 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
-<p><strong>Change and shift to Triggers tab. Select task and click on edit.</strong></p>
+<h3>Edit task setting:</h3>
+<div class="mediaInline slideContent" >
+<p><strong>Change and shift to Triggers tab. Select task and click on edit.</strong>  </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/9.jpg" alt=""/></p>
 
@@ -887,9 +904,9 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
-<p>Check in Repeat task every and select duration. When you click on a time lag then you can simply change the value from keyboard. This will enable to execute task at and given time. Further options such as Expire can be edited if required. If not, simply click on OK.  </p>
+<h3>Edit trigger:</h3>
+<div class="mediaInline slideContent" >
+<p>Check in Repeat task every and select duration. When you click on a time lag then you can simply change the value from keyboard. This will enable to execute task at and given time. Further options such as Expire can be edited if required. If not, simply click on OK.   </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/10.jpg" alt=""/></p>
 
@@ -897,8 +914,8 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
+<h3>Layout of .csv file:</h3>
+<div class="mediaInline slideContent" >
 <p>This .csv file will be generated in the directory of r script.</p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/11.jpg" alt=""/></p>
@@ -907,8 +924,8 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-
-<div class="mediaInline slideContent noTitle" >
+<h3>Layout of .Rout file:</h3>
+<div class="mediaInline slideContent" >
 <p>This .Rout file will be generated in the same directory. This will contain all the text printed in the R terminal. </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/12.jpg" alt=""/></p>
@@ -929,7 +946,7 @@ head(df)
 </code></pre>
 
 <pre><code>          SYSTEM_TIME
-1 2016-07-19 14:50:16
+1 2016-07-19 17:38:20
 </code></pre>
 
 </div>
@@ -1025,15 +1042,15 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Visualization:</h3>
 <div class="mediaInline slideContent" >
-<p>Here, viewCount, likeCount, dislikeCount and commentCount has been plotted against time. The x-axis and y-axis represents time and count respectively. It shows change in count over time. </p>
+<p>The x-axis and y-axis represents time and count respectively. It shows change in count over time. (Note: My computer was turned off during 2 P.M.-11 P.M. on that day,due to this there is jump in the graph at the same time this can be considered as a reminder that in order to obtain data continuously.)</p>
 
-<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-4"/></p>
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-4"/></p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>EDA of the obtained data:</h3>
+<h3>Fitting a linear model:</h3>
 <div class="mediaInline slideContent" >
 <p>Here, we are fitting a LM on viewCount w.r.t time. <strong>Time=Current time-Published.At</strong> . Model does not fits the data well because of non-linearity, but it definitely shows the way forward. </p>
 
@@ -1053,9 +1070,9 @@ head(df)
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Reminder:</h3>
+<h3>Note:</h3>
 <div class="slideContent" >
-<p>My computer was turned off during 2PM to 11PM on that day that&#39;s why there a jump in the graph at the same time this can be considered as a reminder that in order to obtain data continuously <strong>one must turn on a computer for a cetain period of time</strong>. It is true for internet connectivity as well depending on the requirement of the program.  </p>
+<p><strong>One must turn on a computer for a cetain period of time</strong>. It is true for internet connectivity as well depending on the requirement of the program.  </p>
 
 <p>This is just a simple example of where crontab can be used. There are many more things can be done using crontab, shiny and R. I&#39;m going to present some examples related this topic and shiny soon.</p>
 

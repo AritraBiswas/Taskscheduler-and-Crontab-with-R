@@ -70,7 +70,7 @@ __`R CMD BATCH C:\Users\Aritra\systime.R`__
 
 Save this file as a .bat file. Here it is saved as systime.bat. To check whether this .bat file is working properly or not, one may simply click on the .bat file. This should execute the R script from command prompt and generate a .csv and a .Rout file. The.csv file should contain the system time of execution of the R script and .Rout file should contain all the text printed out in R terminal. This may be useful to diagnose error if there is any. 
 
-Here the path `"C:\Users\Aritra\systime.R"` is the location of my script, this path must be change with the file location of your r script.  
+Here the path __`"C:\Users\Aritra\systime.R"`__ is the location of my script, this path must be change with the file location of your r script.  
 
 \
 
@@ -96,7 +96,7 @@ __Check in Open the Properties dialog__. Click on Finish.
 
 Under General tab, __check in Run with highest priviliges__.  
 
-Using sudo (in Linux) or running with highest privilege (in windows) is important in this case because it will allow r script to write data. If highest privilege is not grander saving the data file may be disrupted.  
+Using sudo (in Linux) or running with highest privileges (in windows) is important in this case because it will allow r script to write data. If highest privilege is not grander saving the data file may be disrupted.  
 \
 
 ![](http://aritrabiswas.in/wp-content/uploads/2016/07/8.jpg)
@@ -263,4 +263,4 @@ This is just a simple example of where crontab can be used. There are many more 
 \
 \
 
-The source code for this is available in [here](https://github.com/AritraBiswas/Taskscheduler-and-Crontab-with-R) and a slider version of this presentation is available [here](http://rpubs.com/itheta/197258).
+The source code for this is available in [here](https://github.com/AritraBiswas/Taskscheduler-and-Crontab-with-R) and a slider version of this presentation is available [here](http://rpubs.com/itheta/197285).
