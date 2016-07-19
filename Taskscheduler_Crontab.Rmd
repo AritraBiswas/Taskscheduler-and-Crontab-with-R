@@ -188,7 +188,7 @@ After the required changes save it using Ctrl+X. Choose Yes, to save changes.
 
 Now the R script should run from terminal and the latest run time of the script should be saved in a .csv file and as well as in the .Rout file in the selected directory. 
 
-__Application in industry:__
+__Application:__
 
 Here I've used `get_video_data()` from the YouTubeR package to track the change in video statistics. What the function does is it downloads the data related to a video in a give period of time. Here I'm tracking videos posted in Times Now's News hour debate on 12nd July. Here I've successfully obtained the change in  viewCount, likeCount, dislikeCount and commentCount for two videos posted in the channel on above mentioned date in 5 mins interval from 10 A.M..
 
