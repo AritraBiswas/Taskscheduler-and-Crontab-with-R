@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Taskscheduler and Crontab with R</title>
+  <title>Task scheduler and Crontab with R</title>
     
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -749,7 +749,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>Taskscheduler and Crontab with R</h1><p>Aritra Biswas<br/>07&#x2F;19&#x2F;2016</p>
+<h1>Task scheduler and Crontab with R</h1><p>Aritra Biswas<br/>07&#x2F;19&#x2F;2016</p>
 
 <div class="slideContent" >
 
@@ -757,7 +757,7 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Taskscheduler and Crontab with R</h3>
+<h3>Task scheduler and Crontab with R</h3>
 <div class="slideContent" >
 <p>From the point of view of a data scientist this is important to explore a phenomena over time. While conducting an experiment with social networking sites websites I&#39;ve found these beautiful tools which can run r scripts automatically after a per specified time by the user. Here is a tutorial explaining task scheduling process for Windows 10 and Linux Debian Jessie (This is the latest OS for Raspberry Pi).</p>
 
@@ -767,7 +767,7 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 <h3>For windows:</h3>
 <div class="slideContent" >
-<p>To demonstrate this process we need a small R script which will be executed after specific time (i.e. every 5 minutes) on windows using the dufault application Task scheduler. For demonstration purpose we are considering this code:</p>
+<p>To demonstrate this process we need a small R script which will be executed after specific time (i.e. every 5 minutes) on windows using the default application Task scheduler. For demonstration purpose we are considering this code:</p>
 
 <pre><code class="r">time&lt;-Sys.time();
 df&lt;-data.frame(time);
@@ -796,7 +796,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3> </h3>
 <div class="slideContent" >
-<p>Select <strong>One time</strong> and click on next. This will create a one time job initially. Later on we will change the task so that it will be executed after a prespecified time. The time lag on which the script be executated (i.e. once a day, week or month) will be specified later.
+<p>Select <strong>One time</strong> and click on next. This will create a one time job initially. Later on we will change the task so that it will be executed after a specified time. The time lag on which the script be executed (i.e. once a day, week or month) will be specified later.
 <img src="http://aritrabiswas.in/wp-content/uploads/2016/07/2.jpg" alt=""/></p>
 
 </div>
@@ -825,13 +825,13 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 
 <div class="slideContent noTitle" >
-<p>Now, a .bat file has to be created. It will be executed from command prompt in windows. The analog of this .bat file in linux is .sh. Write the following lines of code in a notepad file: </p>
+<p>Now, a .bat file has to be created. It will be executed from command prompt in windows. The analog of this .bat file in Linux is .sh. Write the following lines of code in a notepad file: </p>
 
 <p><strong><code>@echo off</code></strong></p>
 
 <p><strong><code>R CMD BATCH C:\Users\Aritra\systime.R</code></strong></p>
 
-<p>Save this file as a .bat file. Here it is saved as systime.bat. To check whether this .bat file is working properly or not, one may simply click on the .bat file. This should execute the R script from command prompt and generate a .csv and a .Rout file. The.csv file should contain the system time of execusion of the R script and .Rout file should contain all the text printed out in R terminal. This may be useful to diagnose error if there is any. </p>
+<p>Save this file as a .bat file. Here it is saved as systime.bat. To check whether this .bat file is working properly or not, one may simply click on the .bat file. This should execute the R script from command prompt and generate a .csv and a .Rout file. The.csv file should contain the system time of execution of the R script and .Rout file should contain all the text printed out in R terminal. This may be useful to diagnose error if there is any. </p>
 
 </div>
 
@@ -869,7 +869,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 
 <div class="mediaInline slideContent noTitle" >
-<p>Under Gernel tab, <strong>check in Run with highest priviliges</strong>. </p>
+<p>Under General tab, <strong>check in Run with highest priviliges</strong>. </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/8.jpg" alt=""/></p>
 
@@ -889,7 +889,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 
 <div class="mediaInline slideContent noTitle" >
-<p>Check in Repeat task every and select duration. When you click on a time lag then you can simply change the value from keyboard. This will enable to execute task at and given time. Futher options such as Expire can be edited if required. If not, simply click on OK.  </p>
+<p>Check in Repeat task every and select duration. When you click on a time lag then you can simply change the value from keyboard. This will enable to execute task at and given time. Further options such as Expire can be edited if required. If not, simply click on OK.  </p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/10.jpg" alt=""/></p>
 
@@ -899,7 +899,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 
 <div class="mediaInline slideContent noTitle" >
-<p>This .csv file will be generated in the directory of rscript.</p>
+<p>This .csv file will be generated in the directory of r script.</p>
 
 <p><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/11.jpg" alt=""/></p>
 
@@ -919,7 +919,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>For Linux:</h3>
 <div class="slideContent" >
-<p>Now here we will create the same thing in a linux environment on raspberry pi. The OS in this device is Debian Jessie. In order to run R script in this device we need to create a .sh file which will contain the bash or terminal script to run R script.  At first create the systime.R file as mentioned earlier. </p>
+<p>Now here we will create the same thing in a Linux environment on raspberry pi. The OS in this device is Debian Jessie. In order to run R script in this device we need to create a .sh file which will contain the bash or terminal script to run R script.  At first create the systime.R file as mentioned earlier. </p>
 
 <pre><code class="r">time&lt;-Sys.time();
 df&lt;-data.frame(time);
@@ -929,7 +929,7 @@ head(df)
 </code></pre>
 
 <pre><code>          SYSTEM_TIME
-1 2016-07-19 13:54:02
+1 2016-07-19 14:50:16
 </code></pre>
 
 </div>
@@ -942,7 +942,7 @@ head(df)
 
 <p><strong><code>cd Desktop</code></strong></p>
 
-<p>Now, open a text editor.  I&#39;m going to use  Leafpad, which comes preinstalled with raspbian. Type the following line of codes:</p>
+<p>Now, open a text editor.  I&#39;m going to use  Leaf pad, which comes pre-installed with raspbian. Type the following line of codes:</p>
 
 <p><strong><code>#! /bin/bash</code></strong></p>
 
@@ -962,7 +962,7 @@ head(df)
 
 <p>or simple right click on the script and go to <strong>Properties -&gt; Permissions -&gt; Allow executing file as program</strong>.</p>
 
-<p>To verify the script is running simply click on the .sh file. The scrpit should be executed and the .csv and .Rout file should be generated.</p>
+<p>To verify the script is running simply click on the .sh file. The script should be executed and the .csv and .Rout file should be generated.</p>
 
 </div>
 
@@ -970,11 +970,11 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Using crontab:</h3>
 <div class="slideContent" >
-<p>As task scheduler in windows, linux has its own version of called crontab. To run it use the following command in terminal:</p>
+<p>As task scheduler in windows, Linux has its own version of called crontab. To run it use the following command in terminal:</p>
 
 <p><strong><code>sudo crontab -e</code></strong></p>
 
-<p>If crontab is running for the first time, choose nano to edit the file. Add the following lines of code at the end of the file. # at the beging of a line means that the line is commented out. Those lines will not be executed. Do not put # in front of the line.</p>
+<p>If crontab is running for the first time, choose nano to edit the file. Add the following lines of code at the end of the file. # at the beginning of a line means that the line is commented out. Those lines will not be executed. Do not put # in front of the line.</p>
 
 <p><strong><code>* * * * * /home/pi/Desktop/systime.sh</code></strong></p>
 
@@ -984,11 +984,11 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Using crontab:</h3>
 <div class="slideContent" >
-<p>This line will direct the operating system to run the .sh file after everty one minute. There is a option to change this duration. To see how to change this time durtaion in crontab simply read the commented out lines printed in the terminal.</p>
+<p>This line will direct the operating system to run the .sh file after every one minute. There is a option to change this duration. To see how to change this time duration in crontab simply read the commented out lines printed in the terminal.</p>
 
-<p>After the required changes save it using ctrl+X. Choose Yes, to save changes. </p>
+<p>After the required changes save it using Ctrl+X. Choose Yes, to save changes. </p>
 
-<p>Now the R script should run from terminal and the latest runtime of the scrpit should be saved in a .csv file and as well as in the .Rout file in the selected directory. </p>
+<p>Now the R script should run from terminal and the latest run time of the script should be saved in a .csv file and as well as in the .Rout file in the selected directory. </p>
 
 </div>
 
@@ -996,13 +996,13 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Application in industry:</h3>
 <div class="slideContent" >
-<p>Here i&#39;ve used <code>get_video_data()</code> from the YouTubeR package to track the change in video statistics. What the function does is it downloads the data related to a video in a give period of time. Here I&#39;m tracking videos posted in Times Now&#39;s Newhour debate on 12nd July. Here i&#39;ve sucessfully obtained the change in  viewCount, likeCount, dislikeCount and commentCount for two videos posted in the channel on above mentioned date in 5 mins interval from 10 A.M..</p>
+<p>Here I&#39;ve used <code>get_video_data()</code> from the YouTubeR package to track the change in video statistics. What the function does is it downloads the data related to a video in a give period of time. Here I&#39;m tracking videos posted in Times Now&#39;s News hour debate on 12nd July. Here I&#39;ve successfully obtained the change in  viewCount, likeCount, dislikeCount and commentCount for two videos posted in the channel on above mentioned date in 5 mins interval from 10 A.M..</p>
 
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>A glimpese at the data:</h3>
+<h3>A glimpse at the data:</h3>
 <div class="slideContent" >
 <p>Here what the data looks like:</p>
 
@@ -1035,7 +1035,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>EDA of the obtained data:</h3>
 <div class="mediaInline slideContent" >
-<p>Here, we are fitting a LM on viewCount w.r.t time. <strong>Time=Current time-Published.At</strong> . Model does not fits the data well because of non-linearity, but it definately shows the way forward. </p>
+<p>Here, we are fitting a LM on viewCount w.r.t time. <strong>Time=Current time-Published.At</strong> . Model does not fits the data well because of non-linearity, but it definitely shows the way forward. </p>
 
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAGwCAMAAAB2PiqAAAABelBMVEUAAAAAADoAAGYAOmYAOpAAZrYZGT8ZGWIZPz8ZP4EZYp8aGhozMzMzZv86AAA6ADo6AGY6OgA6OmY6OpA6kNs9PT0/GRk/GWI/Pz8/P4E/YmI/Yp8/gYE/gZ8/gb1NTU1NTW5NTY5Nbm5NbqtNjshiGRliGT9iGWJiP2JiP4FiYj9iYmJiYp9igb1in9lmAABmADpmAGZmOgBmZrZmtttmtv9uTU1uTY5ujshuq+SBPxmBPz+BP2KBYoGBgb2BvZ+BvdmOTU2OTY6ObquOjk2OjsiOq+SOyP+QOgCQOjqQOmaQ2/+fYhmfYj+fYmKfgT+fn2Kf2dmrbk2r5P+2ZgC2Zjq2Zma225C2/7a2//+9gT+9gWK92Z+92b292dnIjk3Ijm7Ijo7IyP/I///KysrW1tbZn2LZvYHZ2Z/Z2b3Z2dnbkDrbtmbb25Db/7bb/9vb///kq27kq47k///r6+v/tmb/yI7/25D/5Kv//7b//8j//9v//+T///8pNUfMAAAACXBIWXMAAAsSAAALEgHS3X78AAAb3klEQVR4nO2d+2Mdx1XHL8VKiGWRQKzQNiAV4tIHVHbaqmCg1AVayZEL2BYldiE2yV7ZkaC1HV3Lsrz/OzO797GP2T3z2tlzZs754Ubefu/M3dPPnnnszJxJzsbmYJOxfwAbbWOA2JyMAWJzMgaIzcksADpO3tgN0hgga2M3SGOArI3dII0BsjZ2gzQGyNrYDdIYIGtjN0hjgKyN3SANPUBf/t36W7eO3r4r/tg5Wl9fF3/NL7/zWfHX028vrsmLl8V/nnzjsxC/LJQbnn7vM3GPl+Wfv7olXfDOZ0/+5K78x0qzvHBH6I62xBUpXN8Z/tehB+jpX4uPo7duHT/5YEd6pvBO8Z+HpXvEfx6W1+TFOzsCo3diA0jc45G8WwHQlvx88sHlBkDzC0+/+927c4C2Avy0Y9wAiedOPGwfiI+jb/7g+DffnwN0JMNQAdDTb7/1fenXox3h5C//4e5vbhVg/en3YgTo8vECoH+9++RD8aCIf3zzg7fvll4qL4hHSUrlZQaoiC0Cl63jJz84+rOf/vdP/23ehAlXyqizLhES7VrhYflUfig9eLT15Bv/FR1AApI/+PB40YS9LQB6+p274h/i0SqI2Zpf+PLvb4n2W1x+WG3uBzXMAN0RPrh8XASdrV/97B8f7pRPVRF8RKv1cEs+cjvHwnXyoviriEAPxbeCPH0BATqeN0llBHooeBERqfiHCD3SS/MLIlzLHqN0EEeg47KTUzT/AqG/2qkDJIO6+LizU/Qfl43/nZ2Fxwe3gAAVN3pnR7TSBUA7gpfjO4KUy+WDI/pA5QV590XQZoCkicC9vlWMrI62RJipAVSMvcT/9vWdO2XEkcOP+SgsPoCKGxPh5fLxfBQmeHn6l7eOvr5e9IHWt8oLP5Ox+Ol3/r0AaD1MJMYMkI49DDBS7bDx3RAqyvQZA2Rt47uBASJt7AZpDJC1sRukMUDWxm6QZg3QKWigBC4jRBHWlei5AcdNDvc7GSAGyEnBADFATgoGiAFyUjBADJCTggFigJwUDBAD5KRggBggJwUDxAA5KRggBshJwQAxQE4KBogBclIwQAyQk4IBYoCcFAwQA+SkYIAYIF3FZG71qwwQA6SnmExUBDFAmpVIv9V9xwAV32OAtCpROC81gLgJc6mEAeJOtFsl3IQxQJ4rYYCKqwwQA+SiYIAYICcFA8QAOSkYIAbIScEAMUBmiqxxlQFigEwUGQPkq5IkAcoYIG+VMEDFVQaIAdJXCH42NupXGSCDSmpPX4IAtfkBAHq+l7+5t/2t++LjWr76SBWgLHGACn5MmrBH23v561+IP17ezB/trT4SBShLFaDFSgQJkEkf6PXnIgK9+sn2R1+9uC8YWn3k+ZUrBq1dLDadTsf+CaPYgp/NzenGhtoHPU2YwOXVLx9LbFYf8n8CkSbwZOkpFguBmh2AXMsNOG7SqYgVQButAAT3gfK8FnxeJAfQ0n3NDmQyAJ1W+TEGSAahvZT7QMvHr9mBTAeg0qaZgh+tUdi15kdSAJ2uAlCqnejCsqmiAeN5IN1KyhFswgBlAiBFAGKA9CqZ85MuQIoHaP49BkijEhU/6QGk4ocB0gZI/RoxTP0jFbHay6Sag55/jwGCK1HH7+gBWm1FLaYwpgyQiWLlvUmuasBSAqicwpiqv8cAKRUVfiabSn7iB6g2h5oxQEaKKj+byhm0BACa27wFVysYILAJ21TPoKUEUBGBGSA7hboDdBo7QKuTJBYOYID0FZVTFDr5iRug1VkkyykMBkhbUTnHRbpvquQnHYDmLTgDpK2oAdQ1ARI3QKd1fhggM0WNnyxJgOZWacEZIHNF6T71BEgSAFXf4TBAxoq5+zoEaQC0msJggIwVc/elC1BtCMoAmSr6J0ASAKg+hcEAGSqW7ksVoMYiFgbITLFyX7oA1d7hMEBmipX7EgWoOQfPABkpwAmQ2AFqvcNhgEwUVfclCVB7FS8DZKCouS9RgFrbmNTfY4C6B7D9RUQNkGobk/p7DFDn+CNhgJTbmNTfY4DA8Ud6AKm3Mam/xwApxh+Zxvg1boBU25jU32OAOgawYBHxAtSxjUn9PQZIPf5IGKCOVbwMkKai5b7EAFJ2gDrLYIAUA1it8WvEAHVsY1J/jwFqAtRyXzIALU+y29zcnCgViu8xQK0ZEL0JkPgAqvEzaRHEAPUqKieRNh+/lAAS7Mz5YYCMFEt+pP8a3ksFoNPVA6TghwHqVVQDUNN9yQDUtw+XAQIU1QZskmYTdqrsAQJlMEDwADYdgLpG8D1lMEArhdkMWoQAdZ6k2VMGA1QFyGQGLUqAegIQAwQpug8C6vhebAD188MAAYqeg4A6vhcZQAA/vgGKzabT6UaqCcEKKx1g+WWOQH3PXxoRCApA3IT1KvrclwRAU4gfBqhPYTEBEhdAHcmc4DIYoHL8YT4BEhVAZTInmzIYIHgAmwRAYABigLoVVhMgMQGkww8D1KmwmwCJCKCeo2jBMhggMf7o6wB1FxENQEUPsOMkUbAMBggewMYPUOciMrgMBiibrwEyLiIWgFb89BPEACkt617DCRQRCUBVfrwAdCILupoKQFm2uXCfaRFxAFROgWnwownQrGTnZLKbCkBw+x85QGUP0LaSBkDnP1r89esHKQCkNYCNGSAgFw9cRjMCaRtYHwWAsu5ksnARcQAEHEULltEC6PzjB/OP+AEq23/bSmIAaDUF5gmgi/2yN3XpWRoAdSeThYuIAqANzwBpBZ9YAOrPpQIWEQFAlTl4f32gYhj/tQSaMO3xR7QAFR5wrKQdgW4cpBGBlmuAkgWo8IBrJW2AUmnC9Aew8QK0MQBA+SE0hRgHQGAuFbAI6gDV+PEYga6n0QcyGH/ECpBGMie4knYE0jSwPtwAmYw/4gSosQqKI5CRAk4mC1dCGyDNw7DBStQRaBb723iNXCpgJcQBaqyi8wtQ7K8yat5LEiDNZE6wQg3Q2XtRA1Rv/lMEqPTAZGW++0BRN2Fl819xnl0lhAFqekAYj8L0FS3v2VVCGaCNRgDyCZAMQfAgjDBAbe/ZVUIXoEUHaJAm7GJ/V4zCIl7OsegApduEKffB+esDRb6gTDeZLCygCpB6Iy5HIE2Fdi4VUEAWIJOzjEFFC6DI+0AK7yUGkNlRtKCiDZCmgfWhBEjV/KcFUNdBAAyQjsIgmSwsIAlQ50kkvgAqukCHa7ECZNV9jAqgroMkfAF0WMxBaxAE1ocQIMvuY0QAdZ9k4wmg+fg9zmF8h/cSAqi+CNFLJQ2ALj6JFyDDVBiggB5AfWeJ+mrCTuQM0MV+jC9TrbuPEQHUGYD8jcKKbWEa6+rB+rABZN99jAWgPn58DuNPdFZzkAPIofsYCUC9/HieBzqJbk20eSoMUEAMoP7D1H0CdDiZxDcPZJ4KAxSQA6gvAPkD6Px6pQP0fC9/c2/7WvODHkAWqTBAAS2AAH6GiUCPtvfylzfzR3uND4oAGWcyAAWkAIL48dwHmhV9oNefiwj04r5gqPGR51euwI0cIptu2OdSi8IU2eSKday+rFbSbNUHEgA9lsQ0PuT/BAKLKQK5dR8jiEDTVgBqLsb02Aeq9KA7IxAtgNTec62EEEBFNrD6pcEAqtnzKPpA1WNwCquvhU4BIEUHqLEa3B9A59cnP759sASI/iis3X9MDSAom4xLJS2ALvZ3D3fP3o9oTbTi8UurCQNHYC6VtPtAHz843I3pbbxlMllYQAcgMQZ1/xVGESiiXRlTMHzHDpB8gob7nS2AItuVYZ2NGBYQAUjvMPWBRmERAGSbTBYW0ACo7AAFA+j840+jOqHMPpksLCACUNGB5ghkJxCPn20yWVhAAqD5ACwgQOfXNVaTEQHIJRsxLKAAkPZh6j4j0Ek064G0kjnFDNByBih0EzaLog+kl4snaoAWM4gcgSwEZfhOGaDVDDT3gcwFusmc4gXIQzInWKGIQHoG1jc6QG7JZGEBdoB8JHOCFWqAIngX5ppMFhagB8hDLh5YEWsEWobvZAHykosHVkQKkEEyp0gBMjxM3SNAs7Xz6xp7m8H6xgXIOZksLEANUGMNUECALm4fnKxRX1BmkosnUoDqa8hCDuM/fnB4lXgnuhq+0wSouQYxZAT65NMbB7QjUG0ffKoA+cnFAytaAOWzyaXfamRuBusbESCjZE4xAtRaBM2jMAOBn1ygsAA1QKZnYfuMQJeenb1LOAJ5ygUKC/ACJB4h/7/CYBSW54T7QL5ygcICtAC1NlKGHoWRfpXhKxcoLMAKUNYOQEEjEO1kK95ygcICtAApthGG7AOR3tbT3sSbHEDKbag8CtMTKDbxpgaQeh98MICIb+tRPH2JAdSxD54jkJZgoNafFEB+s4HBihZAhEdhXnOBwgKMAPlO5gQrGgBd7JdH51Achamjd1IAdR4EFDoCaRhYX3iAhmr9yQDUfZp6yD4Q1QVlHacoJQWQ/Wn8HicSiS4o850LFBagA2iAZE6wogUQ0QVlnce4pQSQ/2ROsKIdgWguKOt0XjoA9R2lGbQPRHFBmf9UjrAAGUCDZAODFW2ANA2sLyRAw7b+RAAaIhsYrGgARPNVxhCpHGEBLoCGSeYEK6KIQAMHbwoAAWeJhx2FUXuVMXTwJgDQUNnAYEUDIIqvMoZJ5QgLUAE0UDYwWKGOQJRsKpOBjf0jRrbRXVDtA50Q60QPH7zRR6Bs6nyYuscIdOPgcHcGn3EH1hcIoADBGztAGslUwjZhJ4ReZYCZjFIACE7GExCgi9sHszUyALVTOQ5QCXKAdJLxhJwHml363f4EPmgTrC8MQCGCN26AZAxGBZCmgfWFAChM8EYNUKaVzYknEpU2ZCpHWIAEIK1kPDyRqLJBUznCAhQAaSbjQTiRCNYXAKAhUznCAgwAzWMwJoDorIkeNpUjLEAA0CIGYwKIzproYVM5wgIMAOkm4wnbhNFYEz1wKkdYMD5A+sl4QkYgKmuis2FTOcKC0QFaDUIxAURlTXR5ilLKAFUGoagA0jSwvmHvan6MW9IAGSTjCQ0Q+j7Q4hi3hAEySsbDEahhw+cChQXjAlSbhWeADBUBcoHCglEBqs/CowKIwESiwfAjWoDMkvGEHMbjn0g0GX5ECpBpMp6AABGYSAySCxQWjAhQcxkCJoDwTySGyQUKC8YDqLUMARNA6CcSzYYfcQJknIyHR2FLMxx+xAiQxWHYDNDSQuUChQVjAaRYh4kKoEPUGwuD5QKFBSMBpFqHiQkg3CsSjYcfEQJkc5p6yAj0H3AHejSAzIcf0QFkdxh2SIAw740PmAsUFowCkGUuFW7CChskFw8pgGxzqXATJs1m+BEbQJa5VEJGILRnJFoNP+ICyDqXCs8DnYZO5QgLwgNkn0slJEAiBP34NsJXGYFTOcKC4AA55FIJCNDF/u7hLsKXqaFTOcKC8ADZ51IJOwo73MW3nCN4KkdYEBogl9PUQ0cgfGm/h0vmRAcgh9PUA/eB8KX9HjAXDxWAnHKppD4KGyGVIywIDZDLcfxh+0Do9oV1HwSUDkDznZQuRQyiaACE84CpQZM50QBosZPSoYhhFOoIpGFgff7uapRMfLAgJEBZbwBCBBDGdE/jZOKDBWEB6gtAiADSN7A+X3c1UiY+WBAQIOdkPOEi0I8Wf/0aiEFgfd4AGicTHywICZBrPodwEWhWnjF+Am5uBuvzdFdjZeKDBeEAcs/nELIJK1Ykrk6qf3Nv+1v3xce1fPUREKDRMvHBgmAAecjnMGIf6PUvxMfLm/mjvdVHOIDGy8QHC8IB5J7PISRAs0vPzt5dLed49ZPtj756cV8wtPrI8ytXgBbOk8lMapxNDn9CvfrpHHleWc4hcHn1y8cSm9WHvA4C6+OxmHYuYNAugnwE8pLPIfREYn02sRp8XoQEaMxMfLAgDEB+8jkEBOhif7doxhb/fr6Xv9wbpw/UvQJPvw76AHnJ5xCyD9RYztEYgIUchcH8xA+Qp3wOI47Cugysz/mu5LM3XipHWBACoMxTPodgACF6FzZyJj5YEACgzFc+h9CdaAQRqPBd8gDpZQNjgBRWdIBGdAwsGB4g3WROqADKD+EjfgMAVHag0wZoMQNECyAcW5vHz8QHC4YGaDkDRAsgXQPrc7mrxQxQ2gB5PI4/8DzQ6FubFzNAKQPk9TT1gABh2Nq8nEFMGKDKKzBaACHY2owiEx8sGBSg6iswWgCNv7W58gosYYD8HscfuA807tbmyiuwZAHyfZp6SqOw6ivUVAGqrwFigEwEWDLxwYLhAGqsASIG0Lgn1dfXAKUKUH0dCy2ARn4XVvddmgA110HRAmjcY35Nn70YAWotgiYG0Kgn1ePJxAcLBgKovZCXFkCjNmHGwTtGgFoLeWkBNGoTZhy84wNIsRCcFkBjLufAlMoRFgwCkGoXGC2AdA2sz/yu2ocoJQeQcicTLYDGi0CKLXTpAaTayUQLoMJmV3PIwPrMAUKVyhEWDACQeiccQYDGWM5hFbzjAqhjGzxBgM7eCw6Q0nlpAdS1lZsWQGUfKHgTpnZeYgDZZgNDBZCugfUZ3VXHw5cUQPbJnHABNMarDOvgHRFA3ecA0QLo/Eb4meisy3kJAdRzlg0xgEZ4F9bpvJQA6j7LhhZAI2xtRpnKERZ4BWjg4/iDj8JC9oFcgncsAA19HH/Mo7DODpB+EQMrhgeozwckAQo5E913EmI6AA2czyHiCNR7kmYiAAEnsTJAPYL+k1jTACjAcfwhAZqtiX40PBID69O6q/7GPw2AptBR4rQAurh9cLIW7HQO4CjoRAByTeaECiB5OsfVUJ1o6CjxFADKwFwqtAC6+OTTGweBIhB4FH0CAGmkMqAFUD6bXPqtxvswsD74J4GNfwIAAZ1AnSJ0FHGOwqZgLoMUAIJzqRADSHM5h7tNORlYND6oL+c43J2tgV8BgdV69vBm4oMFem7oV4Q6jj/sKOwkxChMp/GPHiC9XCq0ALq4fTBbCwIQHIDiByhUPoego7BLv9sfflF9ppPMKXaAyiAcG0CaBtYHuU6j8Y8coEwzGQ8D1LIMfyI1WOAKUDY/C4ABMv9JmV7jHztAmtmcUPtpFIAyzWROUQOkn4wHtZ/GAEg7F0/MAK1GoQyQ4U9azgChdgwscAKoMg3GABn+pOWzh9oxsMARoKAJQWICyCB2xwtQdRqVATKq0OTRixag2jQ8A2RSYfUVGGrHwAJ7gOrvARkgkwqNYne8AIVOCBINQGaxO1KAGu+RGSD9Cg0fvTgBaq5DYIC0K2ysAULtGFhgCVBrIRQDpF2haeyOFKAREoLEAZBx7I4RIItkPKj9FBAg80cvQoAUCzEZIL0K24ugUTsGFtgApFoJzgDpVUgskRossAPIIpsTaj8FA8gmdkcHkF0yHtR+CgWQ1aMXG0DjHcdPHiDlLjDUjoEFxgB1bIVjgDQqpJdIDRZYADRaPgfqAFnG7rgAUjpBHkQwsavfREEcIDU/Gr6LCaDSCXUvTObm+ANjB0jR9k8mWr6LCKDSCTUvaDqBAWoHoEmKAHU7wfUHRg6QogHz9uyRAUjRgC0cwJ1ooMKa6+bMFL5D7RhYYAJQrQFbPDfz/zJA/RWuXNeMOqgdAwsMAMqqUbgZeRmg/goL102q5vGuCAEk+VE23QxQb4XCdZubmyp+cDsGFugDVAagTZUPHOoPXMQ4AE02Nzc2qvx4visSABX8dDmBAeqywlUi+FRc5/+uCABU+KCHHwZIZQtfFb7rGq2jdgws0AGo+RD5rD9wESEBmtT42eya7EHtGFgAA7QMwiVAnusPXEQogKrdZek6l1w8lAFa+aDgZ4D6AxcRBKDaaD1XvP7xfVc4Aao9Q/0PkUP9gYsIAFBjrD51TuZEFKCqH7IpeJ46A9SIPPPWPpsq1i/4vitMADWdIN2QFdnAGCAAoBY8p0vXkU3lCAsablA+RFgSgpABaHVNAtTPD27HwIIegOaXtPhJDKA397avtQA6beGj5TvUjoEFTTe0HyPpBBz5HPAA9PJm/mivBVDLMtUCTl+/2W8Rw80DZXgSguAB6MV9yVB+5UqvalomUosgk5qDTWPJJqdh+gA9LgECIlAxAwQ+e6ifLFiQ97shw5TPAV0E0ojdxDPxwQINgNDkc8ADkE4faP7spQ3QYhSB4ybxAKQehdVs0YGm7RhY0OuG5SgUx03iAWhp3RUtXoHRdgws6HPDahSK4yYpAaT/7KF2DCyAAMoQJQQhBJDBs4faMbCgxw2VaVQcN0kHoMoMIm3HwIJuN1SnUXHcJC2AdF2H2jGwoNMNtWl4HDdJBqDqKzDajoEFvQAtX+PguEkqAJk9e6gdAwu63FB/j4zjJokAVH+FStsxsKAboOp7ZBw3SQggA9ehdgws6HBDYx0CjpukAVBjDRBtx8CCboCq61hw3CQJgJprgGg7Bhao3YAzIQgFgFpryGg7BhYo3dDayoTjJqkAZOY61I6BBSo3tFfy4rhJAgBZuA61Y2BBF0AYE4LgB0ixCJq2Y2CBwg2lFwLVH7iIYQFSLaKn7RhY0HaDaisKjpskAVBzEwZtx8CClhuUW5lw3CQBgGLLgwULlAC1tjLhuEn8ACl2gdF2DCxQAIQ2owx6gFS7CGk7Bha0AbLyAnE/+QJIsQuVtmNgQcsNyr24OG4SPUCqXcy0HQML2gBZeYG4nxggr53okPUHLmJogCx+EmrHwAIGqLjqCSCbn4TaMbBAAVDQ+gMXMSxAVj8JtWNgAQNUXGWA/AEUtv7ARTBAvivRcwOOm2SAhiuCAXJSMEAMkJOCAWKAnBQMEAPkpGCAGCAnBQPEADkpGCAGyEnBADFATgoGiAFyUjBADJCTggFigJwUDBAD5KRggBggJwUDxAA5KRggBshJYQ0QG9vKxgGoP2ldqCK8lDFy/aMXwQCNaDjcQBEgtmiMAWJzMgaIzckYIDYnCwvQm3vbH31V5M5cJtA0tdc/X3zbuoj8+Z4s5s+/cCzG2nC4wY8XwgIkfvPzvSJ77zKFr0URLx2LeLS9V/ySm27F2BsKN3jyQliA/udfxKNX5A9fJhE3Nem5a05FvP78eeGql3tuv8TeMLjBlxfCAiQgf3nz8f3Fh00RIur+xd+6FZEXrnv9z185FmNtONzgxwuBI9AXC9hdnnvnIqTrXv/TF/loEQiFG/x4IXgfyLUDI4p45FiELOPV33wh/y8YrQ+EwA1+vEBuFLb6ttMo7NH29vZNwqMwD27w4wWeB2JzMgaIzckYIDYnY4DYnIwBYnMyBojNyRggOzt7/9niz4v93TF/ycjGADkbA8QG29kf/3CyluezifgUf3/tP99/djKZXM3zk8nv/5ABYoPs7N0DEWlkw3W4K/4WTdj/vffg/MbB2XsPzv6QAWKDTKJzclUEIBF25N9n7/+vCEiHuydX5efYv25EY4D0bA7Q2uJvBmhuDJCezZuwZUNWacLOrzNAbJDVOtEFQLITvSs70b/3RwwQG2SVeR+2qjFAesYAdRgDxOZkDBCbkzFAbE7GALE5GQPE5mT/D+xrh8lM67MIAAAAAElFTkSuQmCC" alt="plot of chunk unnamed-chunk-5"/></p>
 
@@ -1045,7 +1045,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>It&#x27;s just the beginning</h3>
 <div class="slideContent" >
-<p>There are so many things can be done with this. This is hard to list them. Soon i&#39;m going to share some of the applications based on this. </p>
+<p>There are so many things can be done with this. This is hard to list them. Soon I&#39;m going to share some of the applications based on this. </p>
 
 <p><center><img src="http://aritrabiswas.in/wp-content/uploads/2016/07/keep-calm.png" alt=""/></center></p>
 
@@ -1055,7 +1055,7 @@ head(df)
 <section data-transition="linear" data-transition-speed="default">
 <h3>Reminder:</h3>
 <div class="slideContent" >
-<p>My computer was turned off during 2PM to 11PM on that day that&#39;s why there a jump in the graph at the same time this can be considered as a remined that in order to obtain data continously <strong>one must turn on a computer for a cetain period of time</strong>. It is true for internet connectivity as well depending on the requirment of the programm.  </p>
+<p>My computer was turned off during 2PM to 11PM on that day that&#39;s why there a jump in the graph at the same time this can be considered as a reminder that in order to obtain data continuously <strong>one must turn on a computer for a cetain period of time</strong>. It is true for internet connectivity as well depending on the requirement of the program.  </p>
 
 <p>This is just a simple example of where crontab can be used. There are many more things can be done using crontab, shiny and R. I&#39;m going to present some examples related this topic and shiny soon.</p>
 
